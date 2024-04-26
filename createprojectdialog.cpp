@@ -14,11 +14,25 @@ CreateProjectDialog::CreateProjectDialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::CreateProjectDialog)
 {
+    m_succQMessageBox = new QMessageBox(this);
+
     ui->setupUi(this);
     ui->okcancelButtonBox->button(QDialogButtonBox::Ok)->setText(tr("保存"));
     ui->okcancelButtonBox->button(QDialogButtonBox::Cancel)->setText(tr("取消"));
 
     connect(ui->okcancelButtonBox,&QDialogButtonBox::accepted,this,&CreateProjectDialog::createProjectRequest);
+
+    // MessageBox 按钮点击
+    connect(m_succQMessageBox, &QMessageBox::buttonClicked,this,&CreateProjectDialog::messageClose);
+    // MessageBox 窗口关闭
+    connect(m_succQMessageBox, &QMessageBox::finished,this,&CreateProjectDialog::messageClose);
+
+}
+
+void CreateProjectDialog::messageClose(){
+    qDebug()<<"messageClose event";
+    emit CreateProjectDialog::closeCreateProjectWindow();
+    this->close();
 }
 
 void CreateProjectDialog::createProjectRequest(){
@@ -95,7 +109,18 @@ void CreateProjectDialog::createProjectRequest(){
     if (code == 200) {
         qDebug() << "新建成功";
         //TODO刷新videouploaddialog对话框，重新调用接口
-        Common::infoDialog("新建成功");
+        m_succQMessageBox->setParent(0);
+        m_succQMessageBox->setIcon(QMessageBox :: Information);
+        m_succQMessageBox->setText("新建成功");
+        m_succQMessageBox->setWindowTitle("消息");
+        m_succQMessageBox->setStyleSheet(R"(
+        QLabel
+        {
+            color: green;
+            background: rgbda(85,174,255,100%);
+        }
+        )");
+        m_succQMessageBox->exec();
         return;
     }
 }

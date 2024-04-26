@@ -171,7 +171,7 @@ QJsonArray VideoUploadDialog::getProjectList(){
  */
 VideoUploadDialog::VideoUploadDialog(QWidget *parent)
     : QDialog(parent), ui(new Ui::VideoUploadDialog) {
-
+    m_CreateProjectDialog = new CreateProjectDialog(this);
     //TODO 获取全局token
 
     QString token = VideoUploadDialog::login("admin","admin@2024");
@@ -239,6 +239,11 @@ VideoUploadDialog::VideoUploadDialog(QWidget *parent)
 
     connect(ui->okcancelButtonBox,&QDialogButtonBox::accepted,this,&VideoUploadDialog::upload);
     connect(ui->createProjectPushButton,&QPushButton::clicked,this,&VideoUploadDialog::createProject);
+    connect(m_CreateProjectDialog,&CreateProjectDialog::closeCreateProjectWindow,this, &VideoUploadDialog::refreshProject);
+}
+
+void VideoUploadDialog::refreshProject(){
+    qDebug()<<"RefreshProject";
 }
 
 VideoUploadDialog::~VideoUploadDialog() { delete ui; }
@@ -282,6 +287,6 @@ void VideoUploadDialog::upload(){
  * @brief VideoUploadDialog::createProject
  */
 void VideoUploadDialog::createProject(){
-    CreateProjectDialog* w = new CreateProjectDialog(this);
-    w->show();
+    m_CreateProjectDialog->show();
+
 }

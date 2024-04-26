@@ -147,8 +147,10 @@ video_upload_autogen/timestamp: \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
+	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
 	D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \

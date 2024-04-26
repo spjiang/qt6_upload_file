@@ -134,7 +134,9 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \

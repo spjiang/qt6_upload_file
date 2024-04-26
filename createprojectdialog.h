@@ -2,6 +2,7 @@
 #define CREATEPROJECTDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class CreateProjectDialog;
@@ -17,8 +18,13 @@ public:
 
 public slots:
     void createProjectRequest();
+    void messageClose();
+
+signals:
+    void closeCreateProjectWindow();
 
 private:
+    QMessageBox* m_succQMessageBox;
     Ui::CreateProjectDialog *ui;
 };
 
