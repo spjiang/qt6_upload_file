@@ -1,0 +1,13 @@
+# ninja log v5
+11	708	7357611702965987	video_upload_autogen/timestamp	e974571f2004318e
+876	5893	7357609309269083	CMakeFiles/video_upload.dir/common.cpp.obj	1c69ca1510d4c333
+4386	14543	7357388092263442	CMakeFiles/video_upload.dir/main.cpp.obj	d15f5b447a028c4c
+11	708	7357611702965987	video_upload_autogen/mocs_compilation.cpp	e974571f2004318e
+1824	5116	7357548077338197	CMakeFiles/video_upload.dir/video_upload_autogen/mocs_compilation.cpp.obj	fcfcd2092397f819
+11	708	7357611702965987	D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_upload_autogen/timestamp	e974571f2004318e
+11	708	7357611702965987	D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_upload_autogen/mocs_compilation.cpp	e974571f2004318e
+774	10705	7357611802910627	CMakeFiles/video_upload.dir/videouploaddialog.cpp.obj	d5f47df54d9ddfa5
+10789	11515	7357611810940493	video_upload.exe	c51d81fa3888adb
+726	8546	7357611781370011	CMakeFiles/video_upload.dir/mainwindow.cpp.obj	43457a9f3dbd6489
+4	7170	7357976547823246	build.ninja	40665097157c4f63
+832	10789	7357611803780310	CMakeFiles/video_upload.dir/createprojectdialog.cpp.obj	c2c457ee0929e064

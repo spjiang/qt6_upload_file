@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-22f5fa08cc78cb757ada.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "video_upload",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "video_upload::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-video_upload-Debug-39851c1addbf7ee90199.json",
+					"name" : "video_upload",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "video_upload_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-video_upload_autogen-Debug-e442f7f3d4980b492642.json",
+					"name" : "video_upload_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "video_upload_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-video_upload_autogen_timestamp_deps-Debug-bd51fa2939c34ba661a1.json",
+					"name" : "video_upload_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug",
+		"source" : "D:/XNDD/workplace/video_upload"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
