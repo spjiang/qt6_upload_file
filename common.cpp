@@ -105,5 +105,3 @@ QString Common::login(){
     }
     return NULL;
 }
-
-

@@ -27,8 +27,10 @@ public:
     void setDirectoryPath(QString directoryPath);
     void setOutputFilePath(QString outputFilePath);
 
+    bool uploadFileRequest(QString path, QString filename,int projectId);
+
 public slots:
-    void uploadFile();
+    void uploadFileEvent();
     void createProject();
     void refreshProject();
 
