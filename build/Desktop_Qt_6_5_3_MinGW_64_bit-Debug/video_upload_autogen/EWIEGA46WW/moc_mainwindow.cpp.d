@@ -1,5 +1,7 @@
 D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_upload_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/XNDD/workplace/video_upload/mainwindow.h \
   D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_upload_autogen/moc_predefs.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/QJsonDocument \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/QJsonObject \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -16,6 +18,9 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qbytearraylist.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qbytearrayview.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcborcommon.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcborvalue.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qchar.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcompare.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -28,6 +33,7 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qcontiguouscache.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qdatastream.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qflags.h \
@@ -42,8 +48,12 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qiodevicebase.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qiterable.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qiterator.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qjsondocument.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qjsonobject.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qjsonvalue.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qline.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qlist.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qlocale.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qlogging.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qmalloc.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qmap.h \
@@ -64,6 +74,7 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qprocessordetection.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qrect.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qrefcount.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qregularexpression.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qscopedpointer.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qscopeguard.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qset.h \
@@ -103,7 +114,9 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qtversionchecks.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qtypeinfo.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qtypes.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qurl.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qutf8stringview.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/quuid.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtCore/qversiontagging.h \
@@ -133,8 +146,12 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
+  D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
   D:/XNDD/qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -338,4 +355,6 @@ D:/XNDD/workplace/video_upload/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/video_u
   D:/XNDD/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sys/types.h \
   D:/XNDD/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   D:/XNDD/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  D:/XNDD/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+  D:/XNDD/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  D:/XNDD/workplace/video_upload/createprojectdialog.h \
+  D:/XNDD/workplace/video_upload/videouploaddialog.h

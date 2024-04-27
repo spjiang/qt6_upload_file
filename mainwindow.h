@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "videouploaddialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,10 +18,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 public slots:
     void savefile();
 
 private:
     Ui::MainWindow *ui;
+    VideoUploadDialog* m_VideoUploadDialog;
 };
+
 #endif // MAINWINDOW_H

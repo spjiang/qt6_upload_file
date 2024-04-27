@@ -39,7 +39,7 @@ namespace {
 struct qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS = QtMocHelpers::stringData(
     "VideoUploadDialog",
-    "upload",
+    "uploadFile",
     "",
     "createProject",
     "refreshProject"
@@ -48,7 +48,7 @@ static constexpr auto qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS = QtMocH
 struct qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t {
     uint offsetsAndSizes[10];
     char stringdata0[18];
-    char stringdata1[7];
+    char stringdata1[11];
     char stringdata2[1];
     char stringdata3[14];
     char stringdata4[15];
@@ -58,13 +58,13 @@ struct qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t {
 Q_CONSTINIT static const qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS = {
     {
         QT_MOC_LITERAL(0, 17),  // "VideoUploadDialog"
-        QT_MOC_LITERAL(18, 6),  // "upload"
-        QT_MOC_LITERAL(25, 0),  // ""
-        QT_MOC_LITERAL(26, 13),  // "createProject"
-        QT_MOC_LITERAL(40, 14)   // "refreshProject"
+        QT_MOC_LITERAL(18, 10),  // "uploadFile"
+        QT_MOC_LITERAL(29, 0),  // ""
+        QT_MOC_LITERAL(30, 13),  // "createProject"
+        QT_MOC_LITERAL(44, 14)   // "refreshProject"
     },
     "VideoUploadDialog",
-    "upload",
+    "uploadFile",
     "",
     "createProject",
     "refreshProject"
@@ -108,7 +108,7 @@ Q_CONSTINIT const QMetaObject VideoUploadDialog::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<VideoUploadDialog, std::true_type>,
-        // method 'upload'
+        // method 'uploadFile'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'createProject'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -124,7 +124,7 @@ void VideoUploadDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         auto *_t = static_cast<VideoUploadDialog *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->upload(); break;
+        case 0: _t->uploadFile(); break;
         case 1: _t->createProject(); break;
         case 2: _t->refreshProject(); break;
         default: ;

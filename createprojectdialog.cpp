@@ -1,6 +1,5 @@
 #include "createprojectdialog.h"
 #include "ui_createprojectdialog.h"
-#include "videouploaddialog.h"
 #include<QMessageBox>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -14,6 +13,17 @@ CreateProjectDialog::CreateProjectDialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::CreateProjectDialog)
 {
+    // *************************实例化数据*************************
+    // TODO 实例化token
+    QString token = Common::login();
+    if(token.isNull()){
+        Common::errDialog("登录失败");
+        return;
+    }
+    m_token = token;
+    qDebug()<< "CreateProjectDialog token:"<<m_token.toUtf8();
+
+    // 定义新建成功信息提示窗口
     m_succQMessageBox = new QMessageBox(this);
 
     ui->setupUi(this);
@@ -21,12 +31,15 @@ CreateProjectDialog::CreateProjectDialog(QWidget *parent)
     ui->okcancelButtonBox->button(QDialogButtonBox::Cancel)->setText(tr("取消"));
 
     connect(ui->okcancelButtonBox,&QDialogButtonBox::accepted,this,&CreateProjectDialog::createProjectRequest);
-
     // MessageBox 按钮点击
     connect(m_succQMessageBox, &QMessageBox::buttonClicked,this,&CreateProjectDialog::messageClose);
     // MessageBox 窗口关闭
     connect(m_succQMessageBox, &QMessageBox::finished,this,&CreateProjectDialog::messageClose);
 
+}
+
+void CreateProjectDialog::setToken(QString token){
+    m_token = token;
 }
 
 void CreateProjectDialog::messageClose(){
@@ -37,11 +50,6 @@ void CreateProjectDialog::messageClose(){
 
 void CreateProjectDialog::createProjectRequest(){
     qDebug() << "createProjectRequest is start";
-    VideoUploadDialog* u = new VideoUploadDialog();
-    QString token = u->getToken();
-    qDebug() << "createProjectRequest m_token:"<<token;
-
-
     QString project_name = ui->project_name->text();
     if(project_name.isEmpty())
     {
@@ -49,7 +57,6 @@ void CreateProjectDialog::createProjectRequest(){
         Common::errDialog("项目名称不能为空");
         return;
     }
-
     // *********************请求***********************
     QNetworkRequest request;
     QString fullRequest = "http://123.249.67.68:8998/project/add";
@@ -57,7 +64,7 @@ void CreateProjectDialog::createProjectRequest(){
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");//因为QT和java的请求头不一致
     request.setRawHeader(QByteArray("Source"), "app");//这里是设置非标准的请求头
     request.setRawHeader("Source", "app");
-    request.setRawHeader("Authorization", token.toUtf8());
+    request.setRawHeader("Authorization", m_token.toUtf8());
     // 查看请求头
     qDebug()<<request.rawHeaderList();
     //传入josn

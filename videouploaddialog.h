@@ -1,10 +1,11 @@
 #ifndef VIDEOUPLOADDIALOG_H
 #define VIDEOUPLOADDIALOG_H
-
+#include "createprojectdialog.h"
 #include <QDialog>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include "createprojectdialog.h"
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,23 +21,22 @@ public:
     VideoUploadDialog(QWidget *parent = nullptr);
     ~VideoUploadDialog();
     QJsonArray getProjectList();
-    QString login(QString username,QString password);
+
+    // 初始化数据
+    void setToken(QString token);
     void setDirectoryPath(QString directoryPath);
     void setOutputFilePath(QString outputFilePath);
-    void setToken(QString token);
-    QString getToken();
-
 
 public slots:
-    void upload();
+    void uploadFile();
     void createProject();
     void refreshProject();
 
 private:
     Ui::VideoUploadDialog *ui;
+    CreateProjectDialog* m_CreateProjectDialog;
+    QString m_token;
     QString m_directoryPath;
     QString m_outputFilePath;
-    QString m_token;
-    CreateProjectDialog* m_CreateProjectDialog;
 };
 #endif // VIDEOUPLOADDIALOG_H

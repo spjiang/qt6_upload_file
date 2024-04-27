@@ -19,6 +19,7 @@ public:
 public slots:
     void createProjectRequest();
     void messageClose();
+    void setToken(QString token);
 
 signals:
     void closeCreateProjectWindow();
@@ -26,6 +27,7 @@ signals:
 private:
     QMessageBox* m_succQMessageBox;
     Ui::CreateProjectDialog *ui;
+    QString m_token;
 };
 
 #endif // CREATEPROJECTDIALOG_H
