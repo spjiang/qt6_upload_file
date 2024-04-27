@@ -55,7 +55,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
 #if QT_CONFIG(statustip)
-        MainWindow->setStatusTip(QCoreApplication::translate("MainWindow", "\344\270\212\344\274\240\344\270\20010%\357\274\214\344\270\212\344\274\240\344\272\21425%\357\274\214\344\270\212\344\274\240\344\270\21190%", nullptr));
+        MainWindow->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
         filesavebutton->setText(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266\344\270\212\344\274\240", nullptr));
 #if QT_CONFIG(tooltip)

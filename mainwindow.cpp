@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // ui->setupUi(this);
+    // ui->statusbar->showMessage("Completed!", 3000); // 显示消息3秒
     // 登录
     QString token = Common::login();
     token ="1111";
@@ -25,8 +27,16 @@ MainWindow::MainWindow(QWidget *parent)
     m_VideoUploadDialog->setToken(token);
 
     ui->setupUi(this);
+
     connect(ui->filesavebutton,&QPushButton::clicked,this,&MainWindow::savefile);
+
+    connect(ui->filesavebutton,&QPushButton::clicked,this,&MainWindow::savefile);
+
+    connect(m_VideoUploadDialog,&VideoUploadDialog::uploadFileSuccess,this, &MainWindow::uploadFileSuccess);
+
+    connect(m_VideoUploadDialog,&VideoUploadDialog::uploadFileError,this, &MainWindow::uploadFileError);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -34,4 +44,14 @@ MainWindow::~MainWindow()
 }
 void MainWindow::savefile(){
     m_VideoUploadDialog->show();
+}
+
+void MainWindow:: uploadFileSuccess(const QString &data){
+    statusbarList.append(data);
+    ui->statusbar->showMessage(statusbarList.join(";"), 3000); // 显示消息3秒
+}
+
+void MainWindow:: uploadFileError(const QString &data){
+    statusbarList.append(data);
+    ui->statusbar->showMessage(statusbarList.join(";"), 3000); // 显示消息3秒
 }

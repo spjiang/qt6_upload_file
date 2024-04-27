@@ -21,9 +21,12 @@ public:
 
 public slots:
     void savefile();
+    void uploadFileSuccess(const QString &data);
+    void uploadFileError(const QString &data);
 
 private:
     Ui::MainWindow *ui;
+    QStringList statusbarList;
     VideoUploadDialog* m_VideoUploadDialog;
 };
 

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="statusTip">
-   <string>上传一10%，上传二25%，上传三90%</string>
+   <string/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="filesavebutton">

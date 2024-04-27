@@ -292,8 +292,10 @@ bool VideoUploadDialog::uploadFileRequest(QString path, QString filename, int pr
     QJsonValue code = rootObj.value("code");
     if (code == 200) {
         qDebug() << "成功";
+        emit VideoUploadDialog::uploadFileSuccess(filename);
         return true;
     }
+    emit VideoUploadDialog::uploadFileError(filename);
     return false;
 }
 
