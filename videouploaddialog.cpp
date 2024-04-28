@@ -205,26 +205,16 @@ void VideoUploadDialog::uploadFileEvent(){
     }
     KeyValuePair selectedPair = currentData.value<KeyValuePair>();
     qDebug() << "当前所选项目ID:" << selectedPair.key << ", 当前所选项目名称:" << selectedPair.value;
+    // 产品项目ID
+    int projectId = selectedPair.key;
 
-    qDebug()<< "压缩目录:" << m_directoryPath;
-    qDebug()<< "压缩文件保存目录:" << m_outputFilePath;
-    QString outputFilePathName = m_outputFilePath+"/"+filename+".zip";
-    qDebug()<< "压缩后zip文件:" << outputFilePathName;
-    bool compressDirectoryStatus = Common::compressDirectory(m_directoryPath, outputFilePathName);
-    qDebug()<< "文件压缩结果："<<compressDirectoryStatus;
-    if(!compressDirectoryStatus){
-        Common::errDialog("文件压缩失败");
-        return;
-    }
 
-    // TODO文件上传（进度条）
-    bool uploadStatus = this->uploadFileRequest(m_outputFilePath,filename, selectedPair.key);
-    if(!uploadStatus){
-        Common::errDialog("文件上传失败");
-        return;
-    }
+    // 发送信号在mainwindow
+    emit uploadClick(m_directoryPath, m_outputFilePath, filename, projectId);
     return;
 }
+
+
 
 /**
  * 文件上传

@@ -37,6 +37,7 @@ public slots:
 signals:
     void uploadFileSuccess(const QString &data);
     void uploadFileError(const QString &data);
+    void uploadClick(const QString &directoryPath, const QString &outputFilePath, const QString &filename, const int &projectId);
 
 private:
     Ui::VideoUploadDialog *ui;

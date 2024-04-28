@@ -17,18 +17,18 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    void showMessage(const QString &data);
+    void videoUploadStatusbar(const QString filename,const QString message);
 
 public slots:
-    void savefile();
-    void uploadFileSuccess(const QString &data);
-    void uploadFileError(const QString &data);
-    //void videoUploadFileEvent();
+    void savefileWindow();
+    void videoUploadFileClicek(const QString &directoryPath,const QString &outputFilePath, const QString &filename, const int &projectId);
 
 private:
     Ui::MainWindow *ui;
     QStringList statusbarList;
     VideoUploadDialog* m_VideoUploadDialog;
+    QString m_token;
 };
 
 #endif // MAINWINDOW_H
