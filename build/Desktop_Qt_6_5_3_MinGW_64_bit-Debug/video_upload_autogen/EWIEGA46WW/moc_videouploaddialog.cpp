@@ -41,6 +41,7 @@ static constexpr auto qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS = QtMocH
     "VideoUploadDialog",
     "uploadFileSuccess",
     "",
+    "data",
     "uploadFileError",
     "uploadFileEvent",
     "createProject",
@@ -48,14 +49,15 @@ static constexpr auto qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS = QtMocH
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[16];
     char stringdata0[18];
     char stringdata1[18];
     char stringdata2[1];
-    char stringdata3[16];
+    char stringdata3[5];
     char stringdata4[16];
-    char stringdata5[14];
-    char stringdata6[15];
+    char stringdata5[16];
+    char stringdata6[14];
+    char stringdata7[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -64,14 +66,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSVideoUploadDialogENDCLASS_t qt_
         QT_MOC_LITERAL(0, 17),  // "VideoUploadDialog"
         QT_MOC_LITERAL(18, 17),  // "uploadFileSuccess"
         QT_MOC_LITERAL(36, 0),  // ""
-        QT_MOC_LITERAL(37, 15),  // "uploadFileError"
-        QT_MOC_LITERAL(53, 15),  // "uploadFileEvent"
-        QT_MOC_LITERAL(69, 13),  // "createProject"
-        QT_MOC_LITERAL(83, 14)   // "refreshProject"
+        QT_MOC_LITERAL(37, 4),  // "data"
+        QT_MOC_LITERAL(42, 15),  // "uploadFileError"
+        QT_MOC_LITERAL(58, 15),  // "uploadFileEvent"
+        QT_MOC_LITERAL(74, 13),  // "createProject"
+        QT_MOC_LITERAL(88, 14)   // "refreshProject"
     },
     "VideoUploadDialog",
     "uploadFileSuccess",
     "",
+    "data",
     "uploadFileError",
     "uploadFileEvent",
     "createProject",
@@ -95,17 +99,17 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSVideoUploadDialogENDCLASS[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x06,    1 /* Public */,
-       3,    0,   45,    2, 0x06,    2 /* Public */,
+       1,    1,   44,    2, 0x06,    1 /* Public */,
+       4,    1,   47,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   46,    2, 0x0a,    3 /* Public */,
-       5,    0,   47,    2, 0x0a,    4 /* Public */,
-       6,    0,   48,    2, 0x0a,    5 /* Public */,
+       5,    0,   50,    2, 0x0a,    5 /* Public */,
+       6,    0,   51,    2, 0x0a,    6 /* Public */,
+       7,    0,   52,    2, 0x0a,    7 /* Public */,
 
  // signals: parameters
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -126,8 +130,10 @@ Q_CONSTINIT const QMetaObject VideoUploadDialog::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<VideoUploadDialog, std::true_type>,
         // method 'uploadFileSuccess'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'uploadFileError'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'uploadFileEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'createProject'
@@ -144,8 +150,8 @@ void VideoUploadDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         auto *_t = static_cast<VideoUploadDialog *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->uploadFileSuccess(); break;
-        case 1: _t->uploadFileError(); break;
+        case 0: _t->uploadFileSuccess((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->uploadFileError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->uploadFileEvent(); break;
         case 3: _t->createProject(); break;
         case 4: _t->refreshProject(); break;
@@ -154,21 +160,20 @@ void VideoUploadDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (VideoUploadDialog::*)();
+            using _t = void (VideoUploadDialog::*)(const QString & );
             if (_t _q_method = &VideoUploadDialog::uploadFileSuccess; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (VideoUploadDialog::*)();
+            using _t = void (VideoUploadDialog::*)(const QString & );
             if (_t _q_method = &VideoUploadDialog::uploadFileError; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *VideoUploadDialog::metaObject() const
@@ -202,14 +207,16 @@ int VideoUploadDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void VideoUploadDialog::uploadFileSuccess()
+void VideoUploadDialog::uploadFileSuccess(const QString & _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void VideoUploadDialog::uploadFileError()
+void VideoUploadDialog::uploadFileError(const QString & _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP

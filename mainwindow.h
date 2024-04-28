@@ -23,6 +23,7 @@ public slots:
     void savefile();
     void uploadFileSuccess(const QString &data);
     void uploadFileError(const QString &data);
+    //void videoUploadFileEvent();
 
 private:
     Ui::MainWindow *ui;

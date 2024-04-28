@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->statusbar->showMessage("Completed!", 3000); // 显示消息3秒
     // 登录
     QString token = Common::login();
-    token ="1111";
     if(token.isNull()){
         Common::errDialog("登录失败");
         return;

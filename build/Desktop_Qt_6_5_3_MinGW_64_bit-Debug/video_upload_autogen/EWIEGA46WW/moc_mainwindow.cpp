@@ -42,16 +42,18 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "savefile",
     "",
     "uploadFileSuccess",
+    "data",
     "uploadFileError"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[10];
+    uint offsetsAndSizes[12];
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
     char stringdata3[18];
-    char stringdata4[16];
+    char stringdata4[5];
+    char stringdata5[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -61,12 +63,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(11, 8),  // "savefile"
         QT_MOC_LITERAL(20, 0),  // ""
         QT_MOC_LITERAL(21, 17),  // "uploadFileSuccess"
-        QT_MOC_LITERAL(39, 15)   // "uploadFileError"
+        QT_MOC_LITERAL(39, 4),  // "data"
+        QT_MOC_LITERAL(44, 15)   // "uploadFileError"
     },
     "MainWindow",
     "savefile",
     "",
     "uploadFileSuccess",
+    "data",
     "uploadFileError"
 };
 #undef QT_MOC_LITERAL
@@ -88,13 +92,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   32,    2, 0x0a,    1 /* Public */,
-       3,    0,   33,    2, 0x0a,    2 /* Public */,
-       4,    0,   34,    2, 0x0a,    3 /* Public */,
+       3,    1,   33,    2, 0x0a,    2 /* Public */,
+       5,    1,   36,    2, 0x0a,    4 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void, QMetaType::QString,    4,
 
        0        // eod
 };
@@ -112,8 +116,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'uploadFileSuccess'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'uploadFileError'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
     >,
     nullptr
 } };
@@ -125,12 +131,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->savefile(); break;
-        case 1: _t->uploadFileSuccess(); break;
-        case 2: _t->uploadFileError(); break;
+        case 1: _t->uploadFileSuccess((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 2: _t->uploadFileError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const

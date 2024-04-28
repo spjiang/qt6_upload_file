@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include "common.h"
+#include <QByteArray>
 
 // 自定义结构体，用于表示键值对
 struct KeyValuePair {
@@ -94,6 +95,7 @@ VideoUploadDialog::VideoUploadDialog(QWidget *parent)
     ui->okcancelButtonBox->button(QDialogButtonBox::Cancel)->setText(tr("取消"));
 
     connect(ui->okcancelButtonBox,&QDialogButtonBox::accepted,this,&VideoUploadDialog::uploadFileEvent);
+
     connect(ui->createProjectPushButton,&QPushButton::clicked,this,&VideoUploadDialog::createProject);
     connect(m_CreateProjectDialog,&CreateProjectDialog::closeCreateProjectWindow,this, &VideoUploadDialog::refreshProject);
 }
@@ -231,47 +233,123 @@ void VideoUploadDialog::uploadFileEvent(){
  * @return
  */
 bool VideoUploadDialog::uploadFileRequest(QString path, QString filename, int projectId){
-    QNetworkRequest request;
-    QString fullRequest = "http://123.249.67.68:8998/file/upload/video";
-    request.setUrl(QUrl(fullRequest));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data");
-    request.setRawHeader(QByteArray("Source"), "app");
-    request.setRawHeader("Authorization", m_token.toUtf8());
-    qDebug()<< "uploadFile Authorization:"<<m_token.toUtf8();
-    // 查看请求头
-    qDebug()<<request.rawHeaderList();
-    // 表单参数
+
+    QString filenameZip = filename+".zip";
+    QString compressFilePath = path+"/"+filenameZip;
+
+    qDebug()<<"compressFileName:"<<compressFilePath;
+    qDebug()<<"path:"<<path<<",filename:"<<filename<<",project:"<<projectId;
+
+    // 创建一个multipart/form-data请求
     QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+    //其它参数
+    // QHttpPart paramsPart;
+    // const QString header = "application/json";
+    // paramsPart.setHeader(QNetworkRequest::ContentTypeHeader, header);
+    // QJsonObject paramsReq;
+    // QJsonDocument paramsDoc;
+    // QByteArray paramsData;
+    // paramsReq.insert("name",filename);
+    // paramsReq.insert("projectId",projectId);
+    // paramsDoc = QJsonDocument(paramsReq);
+    // paramsData = paramsDoc.toJson();
+    // paramsPart.setBody(paramsData);
+
+    // 添加文本参数 name
+    QHttpPart namePart;
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"name\""));
+    namePart.setBody(filename.toUtf8());
+    multiPart->append(namePart);
+
+    // 添加整数参数 projectId
+    QHttpPart projectIdPart;
+    projectIdPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"projectId\""));
+    projectIdPart.setBody(QString::number(projectId).toUtf8());
+    multiPart->append(projectIdPart);
+
+
+    // 添加文件
+    QFile *file = new QFile(compressFilePath);
+    if (!file->exists()) {
+        qDebug()<<"文件读取异常:"<<compressFilePath;
+        return false;
+    }
+    if (!file->open(QIODevice::ReadOnly)) {
+        qDebug() << "Failed to open file";
+        return false;
+    }
+
     QHttpPart filePart;
-    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"example.txt\""));
-    QFile *file = new QFile("example.txt");
-    file->open(QIODevice::ReadOnly);
+    // filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/zip"));
+    // filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\""+filenameZip+"\""));
+
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/octet-stream"));
+    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"" + QFileInfo(*file).fileName() + "\""));
     filePart.setBodyDevice(file);
-    file->setParent(multiPart);
+    file->setParent(multiPart); // 设置文件对象的父对象，以便其生命周期由multiPart管理
     multiPart->append(filePart);
 
+
     //发送请求
+    QNetworkRequest request;
+    QString fullRequest = "http://123.249.67.68:8998/file/upload/video";
+
+    request.setUrl(QUrl(fullRequest));
+    //request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("multipart/form-data; boundary="+multiPart->boundary()));
+    //request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("multipart/form-data"));
+
+    request.setRawHeader("Source", "app");
+    request.setRawHeader("Authorization", m_token.toUtf8());
+
+    qDebug()<< "uploadFile Authorization:"<<m_token.toUtf8();
+    // 查看请求头
+    qDebug()<<"查看请求头:"<<request.rawHeaderList();
+
+
     QNetworkAccessManager manager;
     QNetworkReply *reply = manager.post(request, multiPart);
-    multiPart->setParent(reply);
+
+    multiPart->setParent(reply); // 设置multiPart的父对象为reply，以便其生命周期由reply管理
+
+    // 监听上传进度
+    QObject::connect(reply, &QNetworkReply::uploadProgress, [](qint64 bytesSent, qint64 bytesTotal){
+        qDebug() << "Upload progress:" << bytesSent << "of" << bytesTotal;
+    });
+
+    // 处理响应
+    // 开启时间循环，直到请求完成
     QEventLoop eventLoop;
     QObject::connect(reply, SIGNAL(finished()),&eventLoop, SLOT(quit()));
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
-
     if(reply->error() != QNetworkReply::NoError)
     {
         qDebug()<<"请求连接超时";
         qDebug()<< reply->error();
+        // 清理资源
+        reply->deleteLater();
         return false;
     }
+
+
+
+    // QObject::connect(reply, &QNetworkReply::finished, [&](){
+    //     if(reply->error() == QNetworkReply::NoError) {
+    //         qDebug() << "Upload successful";
+    //         qDebug() << "Response:" << reply->readAll();
+    //     } else {
+    //         qDebug() << "Error:" << reply->errorString();
+    //     }
+    //     // 清理资源
+    //     reply->deleteLater();
+    // });
+
 
     // 获取http状态码
     QVariant statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
     qDebug()<<"状态码："<<statusCode.toInt();
     if (statusCode.isValid()) {
-        if (statusCode.toInt() >= 200 && statusCode.toInt() < 300) {
-            // 请求成功
-        } else {
+        if (statusCode.toInt() != 200) {
             // 请求失败
             qDebug()<<"接口请求返回异常";
             return false;
@@ -284,9 +362,10 @@ bool VideoUploadDialog::uploadFileRequest(QString path, QString filename, int pr
     QJsonDocument jsonDoc(QJsonDocument::fromJson(replyData, &json_error));
     if(json_error.error != QJsonParseError::NoError)
     {
-        qDebug()<<json_error.error<<replyData;
+        qDebug()<<"json_error.error:"<<json_error.error<<replyData;
         return false;
     }
+
     QJsonObject rootObj = jsonDoc.object();
     qDebug()<<rootObj;
     QJsonValue code = rootObj.value("code");
@@ -295,6 +374,7 @@ bool VideoUploadDialog::uploadFileRequest(QString path, QString filename, int pr
         emit VideoUploadDialog::uploadFileSuccess(filename);
         return true;
     }
+
     emit VideoUploadDialog::uploadFileError(filename);
     return false;
 }

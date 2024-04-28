@@ -41,7 +41,6 @@ void Common::infoDialog(const QString text){
  * @return
  */
 QString Common::login(){
-    return "111";
     QString username = "admin";
     QString password = "admin@2024";
     QNetworkRequest request;
